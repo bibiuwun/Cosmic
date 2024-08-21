@@ -40,7 +40,7 @@ public class SpecificProItemCommand extends Command {
     public void execute(Client c, String[] params) {
         Character player = c.getPlayer();
         if (params.length < 1 || params.length > 15) {
-            player.yellowMessage("Syntax: !proitem <itemid> [<str>] [<dex>] [<int>] [<luk>] [<watk>] [<matk>] [<acc>] [<avd>] [<spd>] [<jmp>] [<wdef>] [<mdef>] [<hp>] [<mp>]");
+            player.yellowMessage("Syntax: !proitem <itemid> [<str>] [<dex>] [<int>] [<luk>] [<slots>] [<watk>] [<matk>] [<acc>] [<avd>] [<spd>] [<jmp>] [<wdef>] [<mdef>] [<hp>] [<mp>]");
             return;
         }
 
@@ -57,15 +57,23 @@ public class SpecificProItemCommand extends Command {
             Item it = ii.getEquipById(itemid);
             it.setOwner(player.getName());
 
-            String[] methods = {"setStr", "setDex", "setInt", "setLuk", "setWatk", "setMatk", "setAcc", "setAvoid", "setSpeed", "setJump", "setWdef", "setMdef", "setHp", "setMp"};
+            String[] methods = {"setStr", "setDex", "setInt", "setLuk", "setUpgradeSlots", "setWatk", "setMatk", "setAcc", "setAvoid", "setSpeed", "setJump", "setWdef", "setMdef", "setHp", "setMp"};
 
             for (int i = 1; i < params.length; i++) {
                 try {
-                    Method method = it.getClass().getMethod(methods[i-1], short.class);
+                    if (i == 5) {
+                        Method method = it.getClass().getMethod(methods[i-1], byte.class);
 
-                    short stat = (short) Math.max(0, parseShortOrDefault(params[i], (short) 0));
+                        byte stat = (byte) Math.max(0, parseByteOrDefault(params[i], (byte) 0));
 
-                    method.invoke(it, stat);
+                        method.invoke(it, stat);
+                    } else {
+                        Method method = it.getClass().getMethod(methods[i-1], short.class);
+
+                        short stat = (short) Math.max(0, parseShortOrDefault(params[i], (short) 0));
+
+                        method.invoke(it, stat);
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -84,6 +92,15 @@ public class SpecificProItemCommand extends Command {
     private static short parseShortOrDefault(String str, short defaultValue) {
         try {
             return Short.parseShort(str);
+        } catch (NumberFormatException e) {
+            // If the string is not numeric, return the default value
+            return defaultValue;
+        }
+    }
+
+    private static byte parseByteOrDefault(String str, byte defaultValue) {
+        try {
+            return Byte.parseByte(str);
         } catch (NumberFormatException e) {
             // If the string is not numeric, return the default value
             return defaultValue;
