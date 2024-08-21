@@ -25,7 +25,6 @@ package constants.skills;
  * @author BubblesDev
  */
 public class Noblesse {
-    public static final int BLESSING_OF_THE_FAIRY = 10000012;
     public static final int MAP_CHAIR = 10000100;
     public static final int THREE_SNAILS = 10001000;
     public static final int RECOVERY = 10001001;
