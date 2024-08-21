@@ -170,6 +170,7 @@ import client.command.commands.gm4.PmobRemoveCommand;
 import client.command.commands.gm4.PnpcCommand;
 import client.command.commands.gm4.PnpcRemoveCommand;
 import client.command.commands.gm4.ProItemCommand;
+import client.command.commands.gm4.SpecificProItemCommand;
 import client.command.commands.gm4.QuestRateCommand;
 import client.command.commands.gm4.ServerMessageCommand;
 import client.command.commands.gm4.SetEqStatCommand;
@@ -499,6 +500,7 @@ public class CommandsExecutor {
 
         addCommand("servermessage", 4, ServerMessageCommand.class);
         addCommand("proitem", 4, ProItemCommand.class);
+        addCommand("specificproitem", 4, SpecificProItemCommand.class);
         addCommand("seteqstat", 4, SetEqStatCommand.class);
         addCommand("exprate", 4, ExpRateCommand.class);
         addCommand("mesorate", 4, MesoRateCommand.class);
