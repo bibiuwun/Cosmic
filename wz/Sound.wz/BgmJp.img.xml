@@ -1,10 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<imgdir name="BgmJp.img">
-  <sound name="Feeling"/>
-  <sound name="BizarreForest"/>
-  <sound name="Hana"/>
-  <sound name="Yume"/>
-  <sound name="Bathroom"/>
-  <sound name="BattleField"/>
-  <sound name="FirstStepMaster"/>
-</imgdir>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><imgdir name="BgmJp.img"><sound name="Feeling"/><sound name="BizarreForest"/><sound name="Hana"/><sound name="Yume"/><sound name="Bathroom"/><sound name="FirstStepMaster"/><sound name="CastleBoss"/><sound name="CastleInside"/><sound name="CastleOutSide"/><sound name="Castle Trap"/><sound name="Elfwoods"/><sound name="WhenTheMorningComes"/><sound name="BattleField"/><sound name="Mystic"/></imgdir>
