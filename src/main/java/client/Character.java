@@ -1,4 +1,5 @@
 /* 
+int usedAp = this.str + this
  This file is part of the OdinMS Maple Story Server
  Copyright (C) 2008 Patrick Huy <patrick.huy@frz.cc>
  Matthias Butz <matze@odinms.de>
@@ -1137,6 +1138,11 @@ public class Character extends AbstractCharacterObject {
         }, 777);
     }
 
+    public synchronized void resetAllAp() {
+        int usedAp = this.str + this.dex + this.int_ + this.luk - 16;
+        updateStrDexIntLuk(4, 4, 4, 4, usedAp);
+    }
+
     public synchronized void changeJob(Job newJob) {
         if (newJob == null) {
             return;//the fuck you doing idiot!
@@ -1204,6 +1210,11 @@ public class Character extends AbstractCharacterObject {
         } else if (job_ > 0) {                  // 2nd~4th others
             addhp += Randomizer.rand(300, 350);
             addmp += Randomizer.rand(150, 200);
+        }
+
+        if (job.getId() <= 500 && job.getId() % 100 == 0) {
+            // reset ap
+            resetAllAp();
         }
         
         /*
