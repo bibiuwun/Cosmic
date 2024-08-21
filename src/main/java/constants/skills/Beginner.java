@@ -25,7 +25,6 @@ package constants.skills;
  * @author BubblesDev
  */
 public class Beginner {
-    public static final int BLESSING_OF_THE_FAIRY = 12;
     public static final int FOLLOW_THE_LEADER = 8;
     public static final int MAP_CHAIR = 100;
     public static final int THREE_SNAILS = 1001;

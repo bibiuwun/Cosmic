@@ -296,7 +296,6 @@ public class SkillFactory {
                 case SuperGM.BLESS:
                 case SuperGM.HIDE:
                 case SuperGM.HYPER_BODY:
-                case Noblesse.BLESSING_OF_THE_FAIRY:
                 case Noblesse.ECHO_OF_HERO:
                 case Noblesse.MONSTER_RIDER:
                 case Noblesse.NIMBLE_FEET:
@@ -340,7 +339,6 @@ public class SkillFactory {
                 case ThunderBreaker.LIGHTNING_CHARGE:
                 case ThunderBreaker.SPEED_INFUSION:
                 case ThunderBreaker.TRANSFORMATION:
-                case Legend.BLESSING_OF_THE_FAIRY:
                 case Legend.AGILE_BODY:
                 case Legend.ECHO_OF_HERO:
                 case Legend.RECOVERY:
@@ -355,7 +353,6 @@ public class SkillFactory {
                 case Aran.SMART_KNOCKBACK:
                 case Aran.COMBO_BARRIER:
                 case Aran.COMBO_ABILITY:
-                case Evan.BLESSING_OF_THE_FAIRY:
                 case Evan.RECOVERY:
                 case Evan.NIMBLE_FEET:
                 case Evan.HEROS_WILL:

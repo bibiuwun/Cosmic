@@ -234,8 +234,6 @@ public class Character extends AbstractCharacterObject {
     private boolean equippedMesoMagnet = false, equippedItemPouch = false, equippedPetItemIgnore = false;
     private boolean usedSafetyCharm = false;
     private float autopotHpAlert, autopotMpAlert;
-    private int linkedLevel = 0;
-    private String linkedName = null;
     private boolean finishedDojoTutorial;
     private boolean usedStorage = false;
     private String name;
@@ -7113,17 +7111,17 @@ public class Character extends AbstractCharacterObject {
             ret.autoban = new AutobanManager(ret);
 
             // Blessing of the Fairy
-            try (PreparedStatement ps = con.prepareStatement("SELECT name, level FROM characters WHERE accountid = ? AND id != ? ORDER BY level DESC limit 1")) {
-                ps.setInt(1, ret.accountid);
-                ps.setInt(2, charid);
+            // try (PreparedStatement ps = con.prepareStatement("SELECT name, level FROM characters WHERE accountid = ? AND id != ? ORDER BY level DESC limit 1")) {
+            //     ps.setInt(1, ret.accountid);
+            //     ps.setInt(2, charid);
 
-                try (ResultSet rs = ps.executeQuery()) {
-                    if (rs.next()) {
-                        ret.linkedName = rs.getString("name");
-                        ret.linkedLevel = rs.getInt("level");
-                    }
-                }
-            }
+            //     try (ResultSet rs = ps.executeQuery()) {
+            //         if (rs.next()) {
+            //             ret.linkedName = rs.getString("name");
+            //             ret.linkedLevel = rs.getInt("level");
+            //         }
+            //     }
+            // }
 
             if (channelserver) {
                 final Map<Integer, QuestStatus> loadedQuestStatus = new LinkedHashMap<>();
@@ -9946,14 +9944,6 @@ public class Character extends AbstractCharacterObject {
     @Override
     public String toString() {
         return name;
-    }
-
-    public int getLinkedLevel() {
-        return linkedLevel;
-    }
-
-    public String getLinkedName() {
-        return linkedName;
     }
 
     public CashShop getCashShop() {

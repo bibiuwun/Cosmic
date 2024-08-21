@@ -235,12 +235,14 @@ public class PacketCreator {
         addCharStats(p, chr);
         p.writeByte(chr.getBuddylist().getCapacity());
 
-        if (chr.getLinkedName() == null) {
-            p.writeByte(0);
-        } else {
-            p.writeByte(1);
-            p.writeString(chr.getLinkedName());
-        }
+        //blessing of the fairy linked character name
+        // if (chr.getLinkedName() == null) {
+        //     p.writeByte(0);
+        // } else {
+        //     p.writeByte(1);
+        //     p.writeString(chr.getLinkedName());
+        // }
+        p.writeByte(0);
 
         p.writeInt(chr.getMeso());
         addInventoryInfo(p, chr);
