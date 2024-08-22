@@ -461,15 +461,15 @@ public class Character extends AbstractCharacterObject {
         ret.setMaxHp(50);
         ret.mp = 5;
         ret.setMaxMp(5);
-        ret.str = 12;
-        ret.dex = 5;
+        ret.str = 4;
+        ret.dex = 4;
         ret.int_ = 4;
         ret.luk = 4;
         ret.map = null;
         ret.job = Job.BEGINNER;
         ret.level = 1;
         ret.accountid = c.getAccID();
-        ret.buddylist = new BuddyList(20);
+        ret.buddylist = new BuddyList(25);
         ret.maplemount = null;
         ret.getInventory(InventoryType.EQUIP).setSlotLimit(96);
         ret.getInventory(InventoryType.USE).setSlotLimit(96);
