@@ -376,10 +376,10 @@ public class CommandsExecutor {
     private void registerLv1Commands() {
         levelCommandsCursor = new Pair<>(new ArrayList<String>(), new ArrayList<String>());
 
-        addCommand("whatdropsfrom", 1, WhatDropsFromCommand.class);
-        addCommand("whodrops", 1, WhoDropsCommand.class);
+        addCommand(new String[]{"wdf","whatdropsfrom"}, 1, WhatDropsFromCommand.class);
+        addCommand(new String[]{"wd", "whodrops"}, 1, WhoDropsCommand.class);
         addCommand("buffme", 1, BuffMeCommand.class);
-        addCommand("goto", 1, GotoCommand.class);
+        addCommand(new String[]{"goto", "go"}, 1, GotoCommand.class);
 
         commandsNameDesc.add(levelCommandsCursor);
     }

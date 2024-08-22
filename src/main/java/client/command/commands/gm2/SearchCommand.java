@@ -121,7 +121,7 @@ public class SearchCommand extends Command {
             for (Pair<Integer, String> itemPair : ItemInformationProvider.getInstance().getAllItems()) {
                 if (sb.length() < 32654) {//ohlol
                     if (itemPair.getRight().toLowerCase().contains(search.toLowerCase())) {
-                        sb.append("#b").append(itemPair.getLeft()).append("#k - #r").append(itemPair.getRight()).append("\r\n");
+                        sb.append("#b").append(itemPair.getLeft()).append("#k - #r#z").append(itemPair.getLeft()).append("#\r\n");
                     }
                 } else {
                     sb.append("#bCouldn't load all items, there are too many results.\r\n");
@@ -134,6 +134,6 @@ public class SearchCommand extends Command {
         }
         sb.append("\r\n#kLoaded within ").append((double) (System.currentTimeMillis() - start) / 1000).append(" seconds.");//because I can, and it's free
 
-        c.getAbstractPlayerInteraction().npcTalk(NpcId.MAPLE_ADMINISTRATOR, sb.toString());
+        c.getAbstractPlayerInteraction().npcTalk(9300004, sb.toString());
     }
 }
