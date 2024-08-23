@@ -258,8 +258,8 @@ public class CommandsExecutor {
     }
 
     private void handleInternal(Client client, String message) {
-        if (client.getPlayer().getMapId() == MapId.JAIL) {
-            client.getPlayer().yellowMessage("You do not have permission to use commands while in jail.");
+        if (client.getPlayer().getMapId() == MapId.JAIL && client.getPlayer().gmLevel() < 5) {
+            client.getPlayer().yellowMessage("You are jailed for another " + (client.getPlayer().getJailExpirationTimeLeft() / 1000) + " seconds.");
             return;
         }
         final String splitRegex = "[ ]";

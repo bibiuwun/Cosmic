@@ -55,7 +55,7 @@ public class JailCommand extends Command {
         }
 
         Character victim = c.getWorldServer().getPlayerStorage().getCharacterByName(params[0]);
-        if (victim != null) {
+        if (victim != null && !victim.isGM()) {
             victim.addJailExpirationTime(MINUTES.toMillis(minutesJailed));
 
             if (victim.getMapId() != MapId.JAIL) {    // those gone to jail won't be changing map anyway
