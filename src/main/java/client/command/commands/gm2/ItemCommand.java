@@ -42,6 +42,7 @@ public class ItemCommand extends Command {
     @Override
     public void execute(Client c, String[] params) {
         Character player = c.getPlayer();
+        boolean force = params.length > 1 && params[params.length-1].equalsIgnoreCase("f");
 
         if (params.length < 1) {
             player.yellowMessage("Syntax: !item <itemid> <quantity>");
@@ -51,13 +52,13 @@ public class ItemCommand extends Command {
         int itemId = Integer.parseInt(params[0]);
         ItemInformationProvider ii = ItemInformationProvider.getInstance();
 
-        if (ii.getName(itemId) == null) {
+        if (ii.getName(itemId) == null && !force) {
             player.yellowMessage("Item id '" + params[0] + "' does not exist.");
             return;
         }
 
         short quantity = 1;
-        if (params.length >= 2) {
+        if (params.length >= 2 && !force) {
             quantity = Short.parseShort(params[1]);
         }
 
